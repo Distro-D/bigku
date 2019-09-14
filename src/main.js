@@ -1,13 +1,14 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-import './registerServiceWorker'
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+import store from './store';
+import iview from 'iview';
+import './registerServiceWorker';
 
-Vue.config.productionTip = false
-
+Vue.config.productionTip = false;
+Vue.use(iview);
 new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+    router,
+    store,
+    render: h => h(App)
+}).$mount('#app');

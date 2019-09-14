@@ -1,7 +1,7 @@
 <template>
-  <div>
-     <router-view></router-view>
-  </div>
+    <div>
+        <h1>你好我是全部订单</h1>
+    </div>
 </template>
 
 <script>
