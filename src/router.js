@@ -9,7 +9,7 @@ export default new Router({
             path: '/basic',
             name: 'basic',
             component: () => import('./views/layouts/basic.vue'),
-            chlidren: [
+            children: [
                 {
                     path: 'index',
                     name: 'index',
@@ -18,21 +18,31 @@ export default new Router({
                 {
                     path: 'dingdan',
                     name: 'dingdan',
-                    component: () => import('./views/dingdan/quanbudingdan.vue')
+                    component: () => import('./views/layouts/LR.vue'),
+                    redirect: {
+                        name: 'qbdd'
+                    },
+                    children: [
+                        {
+                            path: 'qbdd',
+                            name: 'qbdd',
+                            component: () => import('./views/dingdan/quanbudingdan.vue')
+                        }
+                    ]
                 },
                 {
-                    path: '*',
-                    redirect: {
-                        name: 'index'
-                    }
+                    path: 'wuliu',
+                    name: 'wuliu',
+                    component: () => import('./views/wuliu/quanbuwuliu.vue')
                 }
             ]
         },
         {
             path: '*',
             redirect: {
-                name: 'basic'
+                name: 'index'
             }
         }
     ]
 });
+

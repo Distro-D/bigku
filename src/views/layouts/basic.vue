@@ -2,10 +2,13 @@
      <div class="layout">
         <Layout>
             <Header>
-                <Menu mode="horizontal" theme="dark" active-name="1">
+                <Menu mode="horizontal" theme="dark" active-name="index" @on-select="han">
+                    <div class="layout-logo">
+                        加油吧少年
+                    </div>
                     <div class="layout-nav">
-                        <MenuItem name="1" v-for="(item,index) in arr" :key="index">
-                           <router-link to="dingdan">{{item.c}}</router-link>
+                        <MenuItem v-for="(item,index) in arr" :key="index" :name='item.name'>
+                        {{item.c}}
                         </MenuItem>
                     </div>
                 </Menu>
@@ -23,19 +26,26 @@ export default {
         return {
             arr: [
                 {
-                    mame: 'basic',
-                    c: '首页'
+                    'name': 'index',
+                    'c': '首页'
                 },
                 {
-                    mame: 'dingdan',
-                    c: '订单'
+                    'name': 'dingdan',
+                    'c': '订单'
                 },
                 {
-                    mame: 'wuliu',
-                    c: '物流'
+                    'name': 'wuliu',
+                    'c': '物流'
                 }
             ]
         };
+    },
+    methods: {
+        han (name) {
+            this.$router.push({
+                name: name
+            });
+        }
     }
 };
 </script>

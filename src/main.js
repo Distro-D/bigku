@@ -7,6 +7,9 @@ import './registerServiceWorker';
 
 Vue.config.productionTip = false;
 Vue.use(iview);
+Vue.prototype.$bus = new Vue({
+    data: {}
+});
 new Vue({
     router,
     store,
